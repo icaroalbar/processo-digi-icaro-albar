@@ -1,14 +1,11 @@
 import { useFetch } from "@/hooks";
 
-import { Card, CardContent } from "@/components/ui/card";
-
-interface ProductHighLightProps {
-  highlight: boolean;
-}
+import { Card } from "@/components/ui/card";
 
 interface ProductHighLightImageProps {
   id: number;
   image: string;
+  offer: string;
 }
 
 export function HighLight() {
@@ -18,24 +15,22 @@ export function HighLight() {
   if (!data) return <div>Carregando...</div>;
 
   const productHighLight = data.filter(
-    (product: ProductHighLightProps) => product.highlight === true,
+    (product: ProductHighLightImageProps) => product.offer === "HERO",
   );
 
   return (
-    <Card className="container max-w-[1024px] border-none">
+    <section className="py-10">
       {productHighLight.map((product: ProductHighLightImageProps) => (
-        <CardContent
-          key={product.id}
-          className="flex items-center justify-center overflow-hidden"
-        >
+        <Card key={product.id} className="container w-full border-none">
           <img
             src={product.image}
-            width={1024}
+            width={0}
+            height={0}
+            className="w-full rounded-lg"
             alt="Imagem illustrativa"
-            className="rounded-lg"
           />
-        </CardContent>
+        </Card>
       ))}
-    </Card>
+    </section>
   );
 }
