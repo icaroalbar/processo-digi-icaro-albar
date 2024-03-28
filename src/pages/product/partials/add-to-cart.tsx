@@ -11,7 +11,7 @@ export async function AddToCart(data: any) {
     description: "Clique no carrinho ao lado para finalizar suas compras.",
     action: (
       <Button variant={"outline"} asChild>
-        <Link to="/">
+        <Link to="/cart">
           <Icon name="ShoppingCart" />
         </Link>
       </Button>
