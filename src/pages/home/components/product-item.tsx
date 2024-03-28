@@ -1,12 +1,12 @@
-import Icon from "./icon";
-import { Button } from "./ui/button";
+import Icon from "../../../components/icon";
+import { Button } from "../../../components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../../../components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 interface ProductItemProps {
