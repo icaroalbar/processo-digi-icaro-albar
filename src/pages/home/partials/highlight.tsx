@@ -9,7 +9,7 @@ interface ProductHighLightImageProps {
 }
 
 export function HighLight() {
-  const { data, error } = useFetch("products");
+  const { data, error } = useFetch("http://localhost:3001/products/");
 
   if (error) return <div>Erro ao buscar dados.</div>;
   if (!data) return <div>Carregando...</div>;
