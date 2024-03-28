@@ -11,7 +11,7 @@ interface ProductProps {
 }
 
 export function ProductList() {
-  const { data, error } = useFetch("products");
+  const { data, error } = useFetch("http://localhost:3001/products/");
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
 
