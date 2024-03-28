@@ -2,6 +2,8 @@ import { useFetch } from "@/hooks";
 import { Button } from "@/components/ui/button";
 import ListProduct from "./components/list-product";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Icon from "@/components/icon";
 
 export default function Cart() {
   const { data, error } = useFetch(`http://localhost:3002/cart/`);
@@ -32,7 +34,14 @@ export default function Cart() {
   });
 
   return (
-    <section className="container flex flex-col gap-y-3 py-10 md:h-screen">
+    <section className="container flex flex-col gap-y-3 py-8 md:h-screen">
+      <Button asChild variant={"ghost"} size={"sm"} className="w-32">
+        <Link className="mb-5 block text-end" to={"/"}>
+          <Icon name="ArrowLeft" className="mr-2 h-4 w-4" />
+          Página inicial
+        </Link>
+      </Button>
+
       {uniqueProducts.map((product) => {
         const totalQuantity = data.filter((p) => p.id === product.id).length;
 
