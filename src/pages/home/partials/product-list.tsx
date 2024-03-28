@@ -55,6 +55,7 @@ export function ProductList() {
       {data.map((product: ProductProps) => (
         <ProductItem
           key={product.id}
+          id={product.id}
           name={product.name}
           price={product.price}
           offer={product.offer}
