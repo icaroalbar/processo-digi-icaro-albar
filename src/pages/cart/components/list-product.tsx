@@ -13,6 +13,7 @@ interface ListProductProps {
   offer?: string;
   name: string;
   price: string;
+  onClick: () => void;
   totalQuantity: () => void;
 }
 
@@ -22,6 +23,7 @@ export default function ListProduct({
   offer,
   name,
   price,
+  onClick,
   totalQuantity,
 }: ListProductProps) {
   return (
@@ -55,7 +57,7 @@ export default function ListProduct({
         <CardDescription>R${price * totalQuantity}</CardDescription>
       </CardContent>
       <CardContent>
-        <Button variant={"ghost"} size={"icon"}>
+        <Button onClick={() => onClick} variant={"ghost"} size={"icon"}>
           <Icon name="Trash2" size={18} />
         </Button>
       </CardContent>

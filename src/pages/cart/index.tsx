@@ -1,15 +1,24 @@
 import { useFetch } from "@/hooks";
 import { Button } from "@/components/ui/button";
 import ListProduct from "./components/list-product";
+import axios from "axios";
 
 export default function Cart() {
   const { data, error } = useFetch(`http://localhost:3002/cart/`);
   if (error) return <div>Erro ao buscar dados.</div>;
   if (!data) return <div>Carregando...</div>;
 
-  const uniqueProducts: any[] = [];
-  const uniqueProductIds: any[] = [];
-  data.forEach((product: any) => {
+  const deleteCartItem = async () => {
+    try {
+      await axios.delete(`http://localhost:3002/cart/`);
+    } catch (error) {
+      console.error("Erro ao excluir o item do carrinho:", error);
+    }
+  };
+
+  const uniqueProducts = [];
+  const uniqueProductIds = [];
+  data.forEach((product) => {
     if (!uniqueProductIds.includes(product.id)) {
       uniqueProductIds.push(product.id);
       uniqueProducts.push(product);
@@ -17,17 +26,15 @@ export default function Cart() {
   });
 
   let totalPrice = 0;
-  uniqueProducts.forEach((product: any) => {
-    const totalQuantity = data.filter((p: any) => p.id === product.id).length;
+  uniqueProducts.forEach((product) => {
+    const totalQuantity = data.filter((p) => p.id === product.id).length;
     totalPrice += product.price * totalQuantity;
   });
 
   return (
-    <section className="container flex flex-col gap-y-3 py-10">
-      {uniqueProducts.map((product: any) => {
-        const totalQuantity = data.filter(
-          (p: any) => p.id === product.id,
-        ).length;
+    <section className="container flex flex-col gap-y-3 py-10 md:h-screen">
+      {uniqueProducts.map((product) => {
+        const totalQuantity = data.filter((p) => p.id === product.id).length;
 
         return (
           <ListProduct
@@ -38,6 +45,7 @@ export default function Cart() {
             totalQuantity={totalQuantity}
             key={product.id}
             offer={product.offer}
+            onDelete={() => deleteCartItem()}
           />
         );
       })}
