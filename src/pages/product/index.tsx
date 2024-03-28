@@ -13,7 +13,7 @@ export default function Product() {
   if (!data) return <div>Carregando...</div>;
 
   return (
-    <div className="container h-screen">
+    <div className="container pb-16 md:h-screen">
       <div className="container grid grid-cols-2 gap-4 py-10">
         <ImagemProduct image={data.image} offer={data.offer} />
         <div className="col-span-2 flex flex-col justify-between md:col-span-1">
