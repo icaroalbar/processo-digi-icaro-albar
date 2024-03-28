@@ -1,0 +1,18 @@
+{
+  "cart": [
+    {
+      "name": "hero Product",
+      "detail": "Lorem ipsum dolor sit amet",
+      "price": "99",
+      "hero": "OMG This just came out today!",
+      "image": "http://placehold.it/940x300/999/CCC"
+    },
+    {
+      "name": "hero Product",
+      "detail": "Lorem ipsum dolor sit amet",
+      "price": "99",
+      "hero": "OMG This just came out today!",
+      "image": "http://placehold.it/940x300/999/CCC"
+    }
+  ]
+}
