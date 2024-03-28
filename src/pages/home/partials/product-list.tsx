@@ -1,5 +1,5 @@
 import { useFetch } from "@/hooks";
-import { ProductItem } from "@/components/product-item";
+import { ProductItem } from "@/pages/home/components/product-item";
 import { useEffect, useRef, useState } from "react";
 
 interface ProductProps {
@@ -10,7 +10,7 @@ interface ProductProps {
   image: string;
 }
 
-export default function ProductList() {
+export function ProductList() {
   const { data, error } = useFetch("products");
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
