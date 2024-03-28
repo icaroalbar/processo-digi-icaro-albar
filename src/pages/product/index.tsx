@@ -15,7 +15,7 @@ export default function Product() {
   return (
     <div className="container">
       <div className="container grid grid-cols-2 gap-4 py-10">
-        <ImagemProduct image={data.image} />
+        <ImagemProduct image={data.image} offer={data.offer} />
         <div className="col-span-2 flex flex-col justify-between md:col-span-1">
           <ProductDetails
             id={data.id}
