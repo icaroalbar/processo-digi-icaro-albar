@@ -1,34 +1,20 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetch } from "@/hooks";
-import Icon from "@/components/icon";
-import { Button } from "@/components/ui/button";
-import ImagemProduct from "./partials/imagem-product";
+
 import ProductDetails from "./partials/product-details";
+import ImagemProduct from "./partials/imagem-product";
+
+import { AddToCart } from "./partials/add-to-cart";
 import { Toaster } from "@/components/ui/toaster";
-import axios from "axios";
-import { toast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
+import Icon from "@/components/icon";
 
 export default function Product() {
   const { id } = useParams();
-  const { data, error } = useFetch(`products/${id}`);
+  const { data, error } = useFetch(`http://localhost:3001/products/${id}`);
 
   if (error) return <div>Erro ao buscar dados.</div>;
   if (!data) return <div>Carregando...</div>;
-
-  const addToCart = async (data: unknown) => {
-    await axios.post("http://localhost:3002/cart", data);
-    toast({
-      title: "Produto adicionado!",
-      description: "Clique no carrinho ao lado para finalizar suas compras.",
-      action: (
-        <Button variant={"outline"} asChild>
-          <Link to="/">
-            <Icon name="ShoppingCart" />
-          </Link>
-        </Button>
-      ),
-    });
-  };
 
   return (
     <div className="container pb-16 md:h-screen">
@@ -44,7 +30,7 @@ export default function Product() {
             info={data.info}
           />
           <Button
-            onClick={() => addToCart(data)}
+            onClick={() => AddToCart(data)}
             className="flex items-center gap-x-3"
           >
             <Icon name="ShoppingCart" />
