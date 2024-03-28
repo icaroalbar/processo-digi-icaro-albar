@@ -1,5 +1,7 @@
 import Icon from "@/components/icon";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface ProductDetailsProps {
   id: string;
@@ -18,6 +20,11 @@ export default function ProductDetails({
 }: ProductDetailsProps) {
   return (
     <div>
+      <Button asChild variant="ghost">
+        <div className="flex items-center gap-x-2 capitalize">
+          <Icon name="ArrowLeft" size={16} /> <Link to={`/`}>voltar</Link>
+        </div>
+      </Button>
       <p className="text-end text-sm capitalize text-muted-foreground">
         código: {id}
       </p>
