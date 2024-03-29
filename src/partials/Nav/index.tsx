@@ -18,13 +18,15 @@ export function Nav() {
         Processo Digi
       </h4>
       <div className="space-x-2">
-        <Button variant="outline" size="icon" className="relative border-none">
-          <div
-            className={`${cart < 1 && "hidden"} absolute -right-1 top-0  h-5 w-5 items-center  rounded-full bg-red-600 font-semibold text-white opacity-100`}
-          >
-            {cart}
-          </div>
-          <Icon name="ShoppingCart" className="h-[1.2rem] w-[1.2rem]" />
+        <Button asChild variant="outline" size="icon" className=" border-none">
+          <a href="/cart" className="relative">
+            <div
+              className={`${cart < 1 && "hidden"} absolute -right-1 top-0 flex h-5 w-5 items-center justify-center  rounded-full bg-red-600 font-semibold text-white opacity-100`}
+            >
+              {cart}
+            </div>
+            <Icon name="ShoppingCart" className="h-[1.2rem] w-[1.2rem]" />
+          </a>
         </Button>
         <ModeToggle />
       </div>
