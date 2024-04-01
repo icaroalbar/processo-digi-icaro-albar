@@ -57,7 +57,7 @@ export default function ListProduct({
         <CardDescription>R${price * totalQuantity}</CardDescription>
       </CardContent>
       <CardContent>
-        <Button onClick={() => onClick} variant={"ghost"} size={"icon"}>
+        <Button onClick={onClick} variant={"ghost"} size={"icon"}>
           <Icon name="Trash2" size={18} />
         </Button>
       </CardContent>

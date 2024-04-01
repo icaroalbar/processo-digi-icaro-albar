@@ -55,24 +55,6 @@
       "image": "http://placehold.it/940x300/999/CCC"
     },
     {
-      "id": "1",
-      "name": "hero Product",
-      "detail": "Lorem ipsum dolor sit amet",
-      "price": 99.99,
-      "info": "This is the latest and greatest product from Derp corp.",
-      "offer": "HERO",
-      "image": "http://placehold.it/940x300/999/CCC"
-    },
-    {
-      "id": "1",
-      "name": "hero Product",
-      "detail": "Lorem ipsum dolor sit amet",
-      "price": 99.99,
-      "info": "This is the latest and greatest product from Derp corp.",
-      "offer": "HERO",
-      "image": "http://placehold.it/940x300/999/CCC"
-    },
-    {
       "id": 2,
       "name": "Product 1",
       "detail": "Lorem ipsum dolor sit amet",

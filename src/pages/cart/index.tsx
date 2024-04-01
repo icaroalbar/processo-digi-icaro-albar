@@ -10,9 +10,9 @@ export default function Cart() {
   if (error) return <div>Erro ao buscar dados.</div>;
   if (!data) return <div>Carregando...</div>;
 
-  const deleteCartItem = async () => {
+  const deleteCartItem = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3002/cart/`);
+      await axios.delete(`http://localhost:3002/cart/${productId}`);
     } catch (error) {
       console.error("Erro ao excluir o item do carrinho:", error);
     }
@@ -54,7 +54,7 @@ export default function Cart() {
             totalQuantity={totalQuantity}
             key={product.id}
             offer={product.offer}
-            onDelete={() => deleteCartItem()}
+            onClick={() => deleteCartItem(product.id)} // Passando o ID do produto para a função de exclusão
           />
         );
       })}
