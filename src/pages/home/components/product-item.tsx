@@ -26,7 +26,7 @@ export function ProductItem({
   image,
 }: ProductItemProps) {
   return (
-    <Card className="container space-y-4 border-none p-0">
+    <Card className="container w-[14rem] space-y-4 border-none p-0">
       <CardHeader className="relative p-0">
         <Badge className={`absolute left-4 top-4 ${!offer && "hidden"}`}>
           {offer === "HERO" ? (
