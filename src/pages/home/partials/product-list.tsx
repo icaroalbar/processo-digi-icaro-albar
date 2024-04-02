@@ -31,7 +31,7 @@ export function ProductList() {
     >
       <CarouselContent>
         {data.map((product: ProductProps) => (
-          <CarouselItem key={product.id} className="lg:basis-2/2 md:basis-1/5">
+          <CarouselItem key={product.id} className="basis-1/1 lg:basis-3/3">
             <ProductItem
               key={product.id}
               id={product.id}
@@ -43,8 +43,10 @@ export function ProductList() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <div className="hidden xl:flex">
+        <CarouselPrevious />
+        <CarouselNext />
+      </div>
     </Carousel>
   );
 }
